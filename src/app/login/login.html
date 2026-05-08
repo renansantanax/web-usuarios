@@ -1,0 +1,72 @@
+<div class="min-h-screen bg-gradient-to-br from-black via-slate-950 to-blue-950 flex items-center justify-center px-4 py-10">
+  <div class="w-full max-w-md">
+    <div class="mb-8 text-center">
+      <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600/20 ring-1 ring-blue-500/30">
+        <svg
+          class="h-8 w-8 text-blue-400"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.8"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 1115 0"
+          />
+        </svg>
+      </div>
+
+      <h1 class="text-3xl font-bold tracking-tight text-white">
+        WebUsuarios
+      </h1>
+      <p class="mt-2 text-sm text-slate-400">
+        Acesse sua conta para gerenciar usuários
+      </p>
+    </div>
+
+    <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-blue-950/40 backdrop-blur">
+      <form class="space-y-6">
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-slate-200">
+            E-mail
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="seuemail@exemplo.com"
+            autocomplete="email"
+            class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
+          />
+        </div>
+
+        <div>
+          <label for="senha" class="mb-2 block text-sm font-medium text-slate-200">
+            Senha
+          </label>
+          <input
+            id="senha"
+            name="senha"
+            type="password"
+            placeholder="Digite sua senha"
+            autocomplete="current-password"
+            class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full cursor-pointer rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/30 active:scale-[0.99]"
+        >
+          Entrar no sistema
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-xs text-slate-500">
+        Sistema de gerenciamento de usuários
+      </p>
+    </div>
+  </div>
+</div>
