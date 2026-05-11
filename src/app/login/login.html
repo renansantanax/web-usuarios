@@ -27,7 +27,7 @@
     </div>
 
     <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-blue-950/40 backdrop-blur">
-      <form class="space-y-6">
+      <form [formGroup]="formLogin" class="space-y-6" (ngSubmit)="autenticar()">
         <div>
           <label for="email" class="mb-2 block text-sm font-medium text-slate-200">
             E-mail
@@ -36,6 +36,7 @@
             id="email"
             name="email"
             type="email"
+            formControlName="email"
             placeholder="seuemail@exemplo.com"
             autocomplete="email"
             class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
@@ -50,6 +51,7 @@
             id="senha"
             name="senha"
             type="password"
+            formControlName="senha"
             placeholder="Digite sua senha"
             autocomplete="current-password"
             class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
@@ -58,6 +60,7 @@
 
         <button
           type="submit"
+          [disabled]="formLogin.invalid"
           class="w-full cursor-pointer rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/30 active:scale-[0.99]"
         >
           Entrar no sistema
