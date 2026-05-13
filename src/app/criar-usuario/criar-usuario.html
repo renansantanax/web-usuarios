@@ -22,12 +22,43 @@
         WebUsuarios
       </h1>
       <p class="mt-2 text-sm text-slate-400">
-        Acesse sua conta para gerenciar usuários
+        Crie sua conta para acessar o sistema
       </p>
     </div>
 
     <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-blue-950/40 backdrop-blur">
-      <form [formGroup]="formLogin" class="space-y-6" (ngSubmit)="autenticar()">
+            @if(msgSucesso())
+      {
+        <div
+          class="mb-6 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300"
+        >
+          {{ msgSucesso() }}
+        </div>
+      }
+      @else if(msgErro())
+      {
+        <div
+          class="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+        >
+          {{ msgErro() }}
+        </div>
+      }
+      <form [formGroup]="formCadastro" (ngSubmit)="criarUsuario()" class="space-y-6">
+
+        <div>
+          <label for="nome" class="mb-2 block text-sm font-medium text-slate-200">
+            Nome do usuário
+          </label>
+          <input
+            id="nome"
+            name="nome"
+            type="text"
+            formControlName="nome"
+            placeholder="Preenche seu nome aqui"
+            class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
+          />
+        </div>
+
         <div>
           <label for="email" class="mb-2 block text-sm font-medium text-slate-200">
             E-mail
@@ -58,20 +89,37 @@
           />
         </div>
 
+        <div>
+          <label for="senhaConfirmacao" class="mb-2 block text-sm font-medium text-slate-200">
+            Confirme sua senha
+          </label>
+          <input
+            id="senhaConfirmacao"
+            name="senhaConfirmacao"
+            type="password"
+            formControlName="senhaConfirmacao"
+            placeholder="Confirme sua senha"
+            autocomplete="current-password"
+            class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20"
+          />
+        </div>
+
         <button
           type="submit"
-          [disabled]="formLogin.invalid"
-          class="w-full cursor-pointer rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/30 active:scale-[0.99]"
+          [disabled]="formCadastro.invalid"
+          class="w-full rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/30 transition hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/30 active:scale-[0.99]"
         >
-          Entrar no sistema
+          Realizar cadastro
         </button>
       </form>
-            <div class="mt-6 text-center text-sm">
-        <span class="text-slate-400">Ainda não tem uma conta?</span>
+
+      <div class="mt-6 text-center text-sm">
+        <span class="text-slate-400">Já possui uma conta?</span>
         <a
-          routerLink="/pages/criar-usuario"
+          routerLink="/pages/login"
           class="ml-1 font-medium text-blue-400 transition hover:text-blue-300 hover:underline"
-        >Criar conta
+        >
+          Acesse aqui
         </a>
       </div>
 
