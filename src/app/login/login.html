@@ -27,6 +27,12 @@
     </div>
 
     <div class="rounded-3xl border border-slate-800 bg-slate-900/80 p-8 shadow-2xl shadow-blue-950/40 backdrop-blur">
+      @if(msgErro())
+      {
+      <div class="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+        {{ msgErro() }}
+      </div>
+      }
       <form [formGroup]="formLogin" class="space-y-6" (ngSubmit)="autenticar()">
         <div>
           <label for="email" class="mb-2 block text-sm font-medium text-slate-200">
